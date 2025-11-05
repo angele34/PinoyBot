@@ -10,7 +10,7 @@ df = pd.read_csv('annotations.csv')
 
 vectorizer = TfidfVectorizer()
 X = vectorizer.fit_transform(df["word"])
-y = df["label"]
+y = df["corrected_label"]
 
 # note that param. random_state can be any integer
 # Split dataset 70% test, 30% temp data
