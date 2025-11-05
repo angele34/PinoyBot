@@ -1,0 +1,54 @@
+word_id,sentence_id,sentence,context,word,label,special_tags,is_correct,corrected_label,corrected_special_tags,is_dirty,notes
+2028,115,tanggalan ng lisensya mga nahuhuling nag drive ng lasing mangdadamay pa yan,lisensya mga nahuhuling nag drive,nahuhuling,FIL,,T,FIL,,,
+2029,115,tanggalan ng lisensya mga nahuhuling nag drive ng lasing mangdadamay pa yan,mga nahuhuling nag drive ng,nag,FIL,,T,FIL,,,
+2030,115,tanggalan ng lisensya mga nahuhuling nag drive ng lasing mangdadamay pa yan,nahuhuling nag drive ng lasing,drive,ENG,,T,ENG,,,
+2031,115,tanggalan ng lisensya mga nahuhuling nag drive ng lasing mangdadamay pa yan,nag drive ng lasing mangdadamay,ng,FIL,,T,FIL,,,
+2032,115,tanggalan ng lisensya mga nahuhuling nag drive ng lasing mangdadamay pa yan,drive ng lasing mangdadamay pa,lasing,FIL,,T,FIL,,,
+2033,115,tanggalan ng lisensya mga nahuhuling nag drive ng lasing mangdadamay pa yan,ng lasing mangdadamay pa yan,mangdadamay,FIL,,T,FIL,,,
+2034,115,tanggalan ng lisensya mga nahuhuling nag drive ng lasing mangdadamay pa yan,lasing mangdadamay pa yan,pa,FIL,,T,FIL,,,
+2035,115,tanggalan ng lisensya mga nahuhuling nag drive ng lasing mangdadamay pa yan,mangdadamay pa yan,yan,FIL,,T,FIL,,,
+2036,116,Inamin din ni Dasuri na mas type niyang mapangasawa ang Pinoy .,Inamin din ni,Inamin,FIL,,T,FIL,,,
+2037,116,Inamin din ni Dasuri na mas type niyang mapangasawa ang Pinoy .,Inamin din ni Dasuri,din,FIL,,T,FIL,,,
+2038,116,Inamin din ni Dasuri na mas type niyang mapangasawa ang Pinoy .,Inamin din ni Dasuri na,ni,FIL,,T,FIL,,,
+2039,116,Inamin din ni Dasuri na mas type niyang mapangasawa ang Pinoy .,din ni Dasuri na mas,Dasuri,UNK,NE,T,UNK,NE,,"""ni Dasuri"" so name of a person REMOVED OTH, CHANGED TO UNK"
+2040,116,Inamin din ni Dasuri na mas type niyang mapangasawa ang Pinoy .,ni Dasuri na mas type,na,FIL,,T,FIL,,,
+2041,116,Inamin din ni Dasuri na mas type niyang mapangasawa ang Pinoy .,Dasuri na mas type niyang,mas,FIL,,T,FIL,,,
+2042,116,Inamin din ni Dasuri na mas type niyang mapangasawa ang Pinoy .,na mas type niyang mapangasawa,type,ENG,,T,ENG,,,
+2043,116,Inamin din ni Dasuri na mas type niyang mapangasawa ang Pinoy .,mas type niyang mapangasawa ang,niyang,FIL,,T,FIL,,,
+2044,116,Inamin din ni Dasuri na mas type niyang mapangasawa ang Pinoy .,type niyang mapangasawa ang Pinoy,mapangasawa,FIL,,T,FIL,,,
+2045,116,Inamin din ni Dasuri na mas type niyang mapangasawa ang Pinoy .,niyang mapangasawa ang Pinoy .,ang,FIL,,T,FIL,,,
+2046,116,Inamin din ni Dasuri na mas type niyang mapangasawa ang Pinoy .,mapangasawa ang Pinoy .,Pinoy,FIL,NE,T,FIL,NE,,idk
+2047,116,Inamin din ni Dasuri na mas type niyang mapangasawa ang Pinoy .,ang Pinoy .,.,SYM,,T,SYM,,,c_l from OTH to SYM
+2048,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,Kamakailan lang nang,Kamakailan,FIL,,T,FIL,,,
+2049,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,Kamakailan lang nang magsalita,lang,FIL,,T,FIL,,,
+2050,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,Kamakailan lang nang magsalita si,nang,FIL,,T,FIL,,,
+2051,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,lang nang magsalita si Bianca,magsalita,FIL,,T,FIL,,,
+2052,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,nang magsalita si Bianca ukol,si,FIL,,T,FIL,,,
+2053,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,magsalita si Bianca ukol sa,Bianca,UNK,NE,T,UNK,NE,,padoublecheck. OTH to UNK
+2054,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,si Bianca ukol sa kontrobersyang,ukol,FIL,,T,FIL,,,
+2055,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,Bianca ukol sa kontrobersyang kinasasangkutan,sa,FIL,,T,FIL,,,
+2056,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,ukol sa kontrobersyang kinasasangkutan ng,kontrobersyang,FIL,,T,FIL,,,
+2057,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,sa kontrobersyang kinasasangkutan ng kaniyang,kinasasangkutan,FIL,,T,FIL,,,
+2058,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,kontrobersyang kinasasangkutan ng kaniyang kaibigan,ng,FIL,,T,FIL,,,
+2059,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,kinasasangkutan ng kaniyang kaibigan at,kaniyang,FIL,,T,FIL,,,
+2060,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,ng kaniyang kaibigan at katrabahong,kaibigan,FIL,,T,FIL,,,
+2061,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,kaniyang kaibigan at katrabahong si,at,FIL,,T,FIL,,,
+2062,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,kaibigan at katrabahong si Toni,katrabahong,FIL,,T,FIL,,,
+2063,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,at katrabahong si Toni Gonzaga,si,FIL,,T,FIL,,,
+2064,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,katrabahong si Toni Gonzaga .,Toni,UNK,NE,T,UNK,NE,,padouble check
+2065,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,si Toni Gonzaga .,Gonzaga,UNK,NE,T,UNK,NE,,padouble check
+2066,117,Kamakailan lang nang magsalita si Bianca ukol sa kontrobersyang kinasasangkutan ng kaniyang kaibigan at katrabahong si Toni Gonzaga .,Toni Gonzaga .,.,SYM,,T,SYM,,,change from OTH to SYM
+2067,118,'wag mo ko andaran ng pag iinarte mo valo ha lakas ng topak mo ah,'wag mo ko,'wag,FIL,,T,FIL,,T,dirty & misspelled (spelling should be huwag)
+2068,118,'wag mo ko andaran ng pag iinarte mo valo ha lakas ng topak mo ah,'wag mo ko andaran,mo,FIL,,T,FIL,,,
+2069,118,'wag mo ko andaran ng pag iinarte mo valo ha lakas ng topak mo ah,'wag mo ko andaran ng,ko,FIL,,T,FIL,,,
+2070,118,'wag mo ko andaran ng pag iinarte mo valo ha lakas ng topak mo ah,mo ko andaran ng pag,andaran,FIL,,T,FIL,,,
+2071,118,'wag mo ko andaran ng pag iinarte mo valo ha lakas ng topak mo ah,ko andaran ng pag iinarte,ng,FIL,,T,FIL,,,
+2072,118,'wag mo ko andaran ng pag iinarte mo valo ha lakas ng topak mo ah,andaran ng pag iinarte mo,pag,FIL,,T,FIL,,,
+2073,118,'wag mo ko andaran ng pag iinarte mo valo ha lakas ng topak mo ah,ng pag iinarte mo valo,iinarte,FIL,,T,FIL,,,
+2074,118,'wag mo ko andaran ng pag iinarte mo valo ha lakas ng topak mo ah,pag iinarte mo valo ha,mo,FIL,,T,FIL,,,
+2075,118,'wag mo ko andaran ng pag iinarte mo valo ha lakas ng topak mo ah,iinarte mo valo ha lakas,valo,UNK,,T,UNK,,,idk. From OTH to UNK
+2076,118,'wag mo ko andaran ng pag iinarte mo valo ha lakas ng topak mo ah,mo valo ha lakas ng,ha,UNK,EXPR,T,UNK,EXPR,,idk. Maybe UNK and not OTH?
+2077,118,'wag mo ko andaran ng pag iinarte mo valo ha lakas ng topak mo ah,valo ha lakas ng topak,lakas,FIL,,T,FIL,,,
+2078,118,'wag mo ko andaran ng pag iinarte mo valo ha lakas ng topak mo ah,ha lakas ng topak mo,ng,FIL,,T,FIL,,,
+2079,118,'wag mo ko andaran ng pag iinarte mo valo ha lakas ng topak mo ah,lakas ng topak mo ah,topak,FIL,,T,FIL,,,
+2080,118,'wag mo ko andaran ng pag iinarte mo valo ha lakas ng topak mo ah,ng topak mo ah,mo,FIL,,T,FIL,,,
