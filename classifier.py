@@ -3,6 +3,7 @@
 
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import classification_report
 from dataprep import *
 import pickle
 
@@ -15,9 +16,21 @@ nb_accuracy = nb.score(X_test, y_test) * 100
 print(f"Naive Bayes Accuracy: {nb_accuracy:.2f}%")
 
 # Decision Tree
-dt = DecisionTreeClassifier(random_state=67)
+dt = DecisionTreeClassifier(
+    criterion='entropy',   
+    max_depth=10,          
+    min_samples_split=5,   
+    min_samples_leaf=2,    
+    random_state=67
+)
+
 dt.fit(X_train, y_train)
 dt_accuracy = dt.score(X_test, y_test) * 100
+
+y_pred = dt.predict(X_test)
+print("\nDecision Tree Classification Report:")
+print(classification_report(y_test, y_pred))
+
 print(f"Decision Tree Accuracy: {dt_accuracy:.2f}%")
 
 # Choose more accurate model
