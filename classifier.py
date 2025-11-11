@@ -1,5 +1,6 @@
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 from sklearn.model_selection import GridSearchCV
 from dataprep import *
@@ -38,13 +39,33 @@ print(classification_report(y_test, y_pred))
 
 print(f"Decision Tree Accuracy: {dt_accuracy:.2f}%")
 
+# Random Forest
+rf = RandomForestClassifier(
+    n_estimators=100,       
+    criterion='entropy',    
+    max_depth=10,           
+    min_samples_split=5,
+    min_samples_leaf=2,
+    random_state=67
+)
+rf.fit(X_train, y_train)
+rf_accuracy = rf.score(X_test, y_test) * 100
+
+y_pred_rf = rf.predict(X_test)
+print("\nRandom Forest Classification Report:")
+print(classification_report(y_test, y_pred_rf))
+print(f"Random Forest Accuracy: {rf_accuracy:.2f}%")
+
 # Choose more accurate model
-if dt_accuracy >= nb_accuracy:
+if dt_accuracy >= nb_accuracy and dt_accuracy >= rf_accuracy:
     best_model = dt
     model_name = "Decision Tree"
-else:
+elif nb_accuracy >= dt_accuracy and nb_accuracy >= rf_accuracy:
     best_model = nb
     model_name = "Naive Bayes"
+else:
+    best_model = rf
+    model_name = "Random Forest"
 
 # Save best model
 with open('language_model.pkl', 'wb') as f:
