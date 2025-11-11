@@ -27,6 +27,18 @@ def extract_features(word):
         1 if word_lower.endswith('an') else 0,  # feature 8: ends with 'an' (Filipino suffix)
         1 if word_lower.startswith('mag') else 0,  # feature 9: starts with 'mag' (Filipino prefix)
         1 if word_lower.startswith('pag') else 0,  # feature 10: starts with 'pag' (Filipino prefix)
+        1 if word_lower.startswith('pag') else 0,  # feature 11: starts with 'pag' (Filipino prefix)
+        # Filipino-specific features
+        1 if word_lower.endswith('ay') else 0,  # feature 12: Filipino particle
+        1 if word_lower in ['ng', 'mga', 'na', 'sa', 'ang', 'ko', 'mo', 'ka', 'ko'] else 0,  # feature 13: common Filipino words
+        1 if word_lower.startswith('ka') else 0,  # feature 14: Filipino prefix
+        # English-specific features
+        1 if word_lower.endswith('ed') else 0,  # feature 15: English past tense
+        1 if word_lower.endswith('ly') else 0,  # feature 16: English adverb
+        1 if word_lower.startswith('un') else 0,  # feature 17: English prefix
+        # Symbol detection
+        1 if not word.isalpha() else 0,  # feature 18: contains non-alphabetic (punctuation/symbols)
+        1 if word in ['.', ',', '!', '?', ';', ':', '-'] else 0,  # feature 19: pure punctuation
     ]
 
     return features
