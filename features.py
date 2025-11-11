@@ -27,7 +27,7 @@ def extract_features(word):
         1 if word_lower.endswith('an') else 0,  # feature 8: ends with 'an' (Filipino suffix)
         1 if word_lower.startswith('mag') else 0,  # feature 9: starts with 'mag' (Filipino prefix)
         1 if word_lower.startswith('pag') else 0,  # feature 10: starts with 'pag' (Filipino prefix)
-        1 if word_lower.startswith('pag') else 0,  # feature 11: starts with 'pag' (Filipino prefix)
+        1 if word_lower.startswith('naka') else 0,  # feature 11: starts with 'naka' (Filipino prefix)
         # Filipino-specific features
         1 if word_lower.endswith('ay') else 0,  # feature 12: Filipino particle
         1 if word_lower in ['ng', 'mga', 'na', 'sa', 'ang', 'ko', 'mo', 'ka', 'ko'] else 0,  # feature 13: common Filipino words
