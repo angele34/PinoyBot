@@ -1,73 +1,38 @@
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import classification_report
-from sklearn.model_selection import GridSearchCV
 from dataprep import *
 import pickle
+from algorithms import train_naive_bayes, train_decision_tree, train_random_forest
 
 print("\n\nTraining Models\n")
 
-# Naive Bayes
-nb = MultinomialNB()
-nb.fit(X_train, y_train)
-nb_accuracy = nb.score(X_test, y_test) * 100
-print(f"Naive Bayes Accuracy: {nb_accuracy:.2f}%")
+# Train Naive Bayes
+nb, nb_accuracy, nb_f1, y_pred_nb = train_naive_bayes(X_train, y_train, X_test, y_test)
 
-# Decision Tree with Grid Search
-param_grid = {
-    'criterion': ['gini', 'entropy'],
-    'max_depth': [3, 5, 7, 10, None],
-    'min_samples_split': [2, 5, 10],
-    'min_samples_leaf': [1, 2, 4],
-    'class_weight': [None, 'balanced'],
-    'ccp_alpha': [0.0, 0.001, 0.01], 
-}
-
-dt_base = DecisionTreeClassifier(random_state=67)
-grid_search = GridSearchCV(dt_base, param_grid, cv=3, scoring='accuracy', verbose=1)
-grid_search.fit(X_train, y_train)
-
-print(f"\nBest Decision Tree parameters: {grid_search.best_params_}")
-dt = grid_search.best_estimator_
-
-dt_accuracy = dt.score(X_test, y_test) * 100
-
-y_pred = dt.predict(X_test)
-print("\nDecision Tree Classification Report:")
-print(classification_report(y_test, y_pred))
-
-print(f"Decision Tree Accuracy: {dt_accuracy:.2f}%")
-
-# Random Forest
-rf = RandomForestClassifier(
-    n_estimators=100,       
-    criterion='entropy',    
-    max_depth=10,           
-    min_samples_split=5,
-    min_samples_leaf=2,
-    random_state=67
+# Train Decision Tree with Grid Search
+dt, dt_accuracy, dt_f1, y_pred_dt = train_decision_tree(
+    X_train, y_train, X_test, y_test, X_val, y_val
 )
-rf.fit(X_train, y_train)
-rf_accuracy = rf.score(X_test, y_test) * 100
 
-y_pred_rf = rf.predict(X_test)
-print("\nRandom Forest Classification Report:")
-print(classification_report(y_test, y_pred_rf))
-print(f"Random Forest Accuracy: {rf_accuracy:.2f}%")
+# Train Random Forest with Grid Search
+rf, rf_accuracy, rf_f1, y_pred_rf = train_random_forest(
+    X_train, y_train, X_test, y_test, X_val, y_val
+)
 
-# Choose more accurate model
-if dt_accuracy >= nb_accuracy and dt_accuracy >= rf_accuracy:
-    best_model = dt
-    model_name = "Decision Tree"
-elif nb_accuracy >= dt_accuracy and nb_accuracy >= rf_accuracy:
-    best_model = nb
-    model_name = "Naive Bayes"
-else:
-    best_model = rf
-    model_name = "Random Forest"
+# Model Comparison
+print("\n--- Model Comparison ---")
+print(f"Decision Tree F1-macro: {dt_f1:.4f}")
+print(f"Naive Bayes F1-macro: {nb_f1:.4f}")
+print(f"Random Forest F1-macro: {rf_f1:.4f}")
+
+# Select best model based on F1-macro
+scores = {
+    'Decision Tree': (dt, dt_f1), 
+    'Naive Bayes': (nb, nb_f1), 
+    'Random Forest': (rf, rf_f1)
+}
+best_name = max(scores, key=lambda k: scores[k][1])
+best_model, best_score = scores[best_name]
 
 # Save best model
 with open('language_model.pkl', 'wb') as f:
-        pickle.dump(best_model, f)
-print(f"\nMost accurate model: ({model_name}) saved as 'language_model.pkl'")
+    pickle.dump(best_model, f)
+print(f"\nBest model: ({best_name}, F1={best_score:.4f}) saved as 'language_model.pkl'")
