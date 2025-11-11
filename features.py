@@ -60,6 +60,14 @@ def extract_features(word):
         1 if word_lower.endswith('est') else 0,  # ends with 'est'
         1 if word_lower.endswith('ful') else 0,  # ends with 'ful'
         1 if word_lower.endswith('less') else 0,  # ends with 'less'
+        1 if word_lower.endswith('able') else 0,  # ends with 'able'
+        1 if word_lower.endswith('ible') else 0,  # ends with 'ible'
+        1 if word_lower.endswith('ous') else 0,  # ends with 'ous'
+        1 if word_lower.endswith('ive') else 0,  # ends with 'ive'
+        1 if word_lower.endswith('al') else 0,  # ends with 'al'
+        1 if word_lower.endswith('ence') else 0,  # ends with 'ence'
+        1 if word_lower.endswith('ance') else 0,  # ends with 'ance'
+        1 if word_lower.endswith('s') and len(word) > 3 and not word_lower.endswith('ss') else 0,  # plural 's'
 
         # English prefix
         1 if word_lower.startswith('un') else 0,  # starts with 'un'
@@ -70,6 +78,8 @@ def extract_features(word):
         1 if word_lower.startswith('over') else 0,  # starts with 'over' 
         1 if word_lower.startswith('under') else 0,  # starts with 'under' 
         1 if word_lower.startswith('ex') else 0,  # starts with 'ex' 
+        1 if word_lower.startswith('non') else 0,  # starts with 'non'
+        1 if word_lower.startswith('anti') else 0,  # starts with 'anti'
 
         # Common English words
         1 if word_lower in ['the', 'a', 'an', 'this', 'that', 'these', 'those'] else 0,  # articles
@@ -80,6 +90,19 @@ def extract_features(word):
         1 if word_lower in ['my', 'your', 'his', 'her', 'its', 'our', 'their'] else 0,  # possessives
         1 if word_lower in ['can', 'will', 'would', 'should', 'could', 'may', 'might', 'must'] else 0,  # modals
        
+        # English character patterns
+        1 if 'th' in word_lower else 0,  # contains 'th'
+        1 if word_lower.startswith('th') else 0,  # starts with 'th'
+        word_lower.count('th'),  # frequency of 'th'
+        1 if 'oo' in word_lower else 0,  # contains 'oo'
+        1 if 'ee' in word_lower else 0,  # contains 'ee'
+        word_lower.count('e'),  # frequency of 'e'
+        word_lower.count('t'),  # frequency of 't'
+        1 if any(word_lower[i:i+2] in ['sh', 'ch', 'wh', 'ph'] for i in range(len(word_lower)-1)) else 0,  # digraphs
+        1 if any(word_lower[i:i+3] in ['str', 'spr', 'thr', 'spl', 'scr'] for i in range(len(word_lower)-2)) else 0,  # consonant clusters
+        1 if 'x' in word_lower or 'q' in word_lower or 'z' in word_lower else 0,  # rare letters
+        1 if word_lower.startswith('wh') else 0,  # wh-questions
+
         # Symbol detection
         1 if not word.isalpha() else 0,  # contains non-alphabetic characters
         1 if word in ['.', ',', '!', '?', ';', ':', '-', '"', "'", '(', ')'] else 0,  # pure punctuation
