@@ -19,6 +19,8 @@ param_grid = {
     'max_depth': [3, 5, 7, 10, None],
     'min_samples_split': [2, 5, 10],
     'min_samples_leaf': [1, 2, 4],
+    'class_weight': [None, 'balanced'],
+    'ccp_alpha': [0.0, 0.001, 0.01], 
 }
 
 dt_base = DecisionTreeClassifier(random_state=67)

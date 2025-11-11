@@ -67,12 +67,19 @@ def extract_features(word):
         1 if word_lower.startswith('pre') else 0,  # starts with 'pre'
         1 if word_lower.startswith('dis') else 0,  # starts with 'dis'
         1 if word_lower.startswith('mis') else 0,  # starts with 'mis'
+        1 if word_lower.startswith('over') else 0,  # starts with 'over' 
+        1 if word_lower.startswith('under') else 0,  # starts with 'under' 
+        1 if word_lower.startswith('ex') else 0,  # starts with 'ex' 
 
         # Common English words
         1 if word_lower in ['the', 'a', 'an', 'this', 'that', 'these', 'those'] else 0,  # articles
         1 if word_lower in ['is', 'am', 'are', 'was', 'were', 'be', 'been', 'being'] else 0,  # copula
         1 if word_lower in ['have', 'has', 'had', 'do', 'does', 'did'] else 0,  # auxiliaries
-
+        1 if word_lower in ['and', 'or', 'but', 'so', 'if', 'when', 'because'] else 0,  # conjunctions
+        1 if word_lower in ['i', 'you', 'he', 'she', 'it', 'we', 'they', 'me', 'him', 'her', 'us', 'them'] else 0,  # pronouns
+        1 if word_lower in ['my', 'your', 'his', 'her', 'its', 'our', 'their'] else 0,  # possessives
+        1 if word_lower in ['can', 'will', 'would', 'should', 'could', 'may', 'might', 'must'] else 0,  # modals
+       
         # Symbol detection
         1 if not word.isalpha() else 0,  # contains non-alphabetic characters
         1 if word in ['.', ',', '!', '?', ';', ':', '-', '"', "'", '(', ')'] else 0,  # pure punctuation
