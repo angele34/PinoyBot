@@ -13,6 +13,9 @@ def extract_features(word):
     vowels = 'aeiou'
     vowel_count = sum(1 for c in word_lower if c in vowels)
 
+    # count consonants
+    consonant_count = sum(1 for c in word_lower if c.isalpha() and c not in vowels)
+
     # build feature list
     features = [
         len(word),  # feature 1: word length
@@ -21,6 +24,9 @@ def extract_features(word):
         1 if 'ng' in word_lower else 0,  # feature 4: contains 'ng' (Filipino indicator)
         1 if word_lower.startswith('nag') else 0,  # feature 5: starts with 'nag' (Filipino prefix)
         1 if word_lower.endswith('ing') else 0,  # feature 6: ends with 'ing' (English suffix)
+        1 if word_lower.endswith('an') else 0,  # feature 8: ends with 'an' (Filipino suffix)
+        1 if word_lower.startswith('mag') else 0,  # feature 9: starts with 'mag' (Filipino prefix)
+        1 if word_lower.startswith('pag') else 0,  # feature 10: starts with 'pag' (Filipino prefix)
     ]
 
     return features
