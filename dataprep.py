@@ -9,6 +9,13 @@ from features import extract_features  # Import from our new features.py file
 df = pd.read_csv('annotations.csv')
 print("Dataset loaded. Shape:", df.shape)
 
+# Drop rows with missing words or labels
+df = df.dropna(subset=['word', 'corrected_label'])
+print(f"After removing missing values: {df.shape}")
+
+# Convert word column to string (just in case may mixed types)
+df['word'] = df['word'].astype(str)
+
 # Extract features for each word using the function from features.py
 X = [extract_features(word) for word in df["word"]]
 y = df["corrected_label"].tolist()
