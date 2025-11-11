@@ -1,9 +1,7 @@
-# Train data using Naive Bayes and Decision Tree
-# Run using python classifier.py
-
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import classification_report
+from sklearn.model_selection import GridSearchCV
 from dataprep import *
 import pickle
 
@@ -15,16 +13,21 @@ nb.fit(X_train, y_train)
 nb_accuracy = nb.score(X_test, y_test) * 100
 print(f"Naive Bayes Accuracy: {nb_accuracy:.2f}%")
 
-# Decision Tree
-dt = DecisionTreeClassifier(
-    criterion='entropy',   
-    max_depth=10,          
-    min_samples_split=5,   
-    min_samples_leaf=2,    
-    random_state=67
-)
+# Decision Tree with Grid Search
+param_grid = {
+    'criterion': ['gini', 'entropy'],
+    'max_depth': [3, 5, 7, 10, None],
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [1, 2, 4],
+}
 
-dt.fit(X_train, y_train)
+dt_base = DecisionTreeClassifier(random_state=67)
+grid_search = GridSearchCV(dt_base, param_grid, cv=3, scoring='accuracy', verbose=1)
+grid_search.fit(X_train, y_train)
+
+print(f"\nBest Decision Tree parameters: {grid_search.best_params_}")
+dt = grid_search.best_estimator_
+
 dt_accuracy = dt.score(X_test, y_test) * 100
 
 y_pred = dt.predict(X_test)
