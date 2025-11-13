@@ -18,11 +18,13 @@ def train_naive_bayes(X_train, y_train, X_test, y_test, X_val = None, y_val = No
     print("\n=== Training Naive Bayes ===")
 
     # Grid for laplace smoothing
-    grid = {'alpha': [0.1, 0.3, 0.5, 0.7, 0.95, 1.35]} # Not too high or not too low
+    grid = {'alpha': [0.05, 0.1, 0.2, 0.3, 0.5, 0.7, 0.9, 1.0, 1.25, 1.50], # Not too high or not too low
+            'fit_prior': [True, False],
+            'class_prior': [None, [0.20, 0.75, 0.05]]} # in order: ENG FIL OTH
 
     # Initialize
     nb = MultinomialNB()
-    grid_search = GridSearchCV(nb, grid, cv = 3, scoring = 'f1_macro', verbose = 1, n_jobs=-1)
+    grid_search = GridSearchCV(nb, grid, cv=3, scoring='f1_macro', verbose=1, n_jobs=-1)
     grid_search.fit(X_train, y_train)
 
     nb = grid_search.best_estimator_
