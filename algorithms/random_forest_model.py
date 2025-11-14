@@ -16,15 +16,14 @@ def train_random_forest(X_train, y_train, X_test, y_test, X_val=None, y_val=None
     """
     print("\n=== Training Random Forest with Grid Search ===")
     
-    # Random Forest with Hyperparameter Grid Search 
     rf_param_grid = {
-        'n_estimators': [100, 200],              
-        'criterion': ['gini', 'entropy'],         
-        'max_depth': [10, 15, None],               
-        'min_samples_split': [2, 5, 10],          
-        'min_samples_leaf': [1, 2, 4],             
-        'max_features': ['sqrt', 'log2'],         
-        'class_weight': ['balanced'],             
+        'n_estimators': [50],                    
+        'criterion': ['entropy'],                
+        'max_depth': [None],                     
+        'min_samples_split': [10],               
+        'min_samples_leaf': [1, 2],              
+        'max_features': ['sqrt'],                
+        'class_weight': [None, 'balanced'],      
     }
     
     # Initialize and perform grid search
