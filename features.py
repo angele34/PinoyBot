@@ -96,12 +96,14 @@ def extract_features(word):
         word_lower.count('th'),  # frequency of 'th'
         1 if 'oo' in word_lower else 0,  # contains 'oo'
         1 if 'ee' in word_lower else 0,  # contains 'ee'
+
         word_lower.count('e'),  # frequency of 'e'
         word_lower.count('t'),  # frequency of 't'
         1 if any(word_lower[i:i+2] in ['sh', 'ch', 'wh', 'ph'] for i in range(len(word_lower)-1)) else 0,  # digraphs
         1 if any(word_lower[i:i+3] in ['str', 'spr', 'thr', 'spl', 'scr'] for i in range(len(word_lower)-2)) else 0,  # consonant clusters
         1 if 'x' in word_lower or 'q' in word_lower or 'z' in word_lower else 0,  # rare letters
         1 if word_lower.startswith('wh') else 0,  # wh-questions
+        1 if any(c in word_lower for c in "fvzcxq") else 0,
 
         # Symbol detection
         1 if not word.isalpha() else 0,  # contains non-alphabetic characters
@@ -112,6 +114,7 @@ def extract_features(word):
         1 if word.isupper() else 0,  # all caps
         1 if word.islower() else 0,  # all lowercase
         1 if word.istitle() else 0,  # title case
+
     ]
 
     return features
