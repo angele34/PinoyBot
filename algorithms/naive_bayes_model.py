@@ -36,13 +36,7 @@ def train_naive_bayes(X_train, y_train, X_test, y_test, X_val = None, y_val = No
     
     # Print results
     print("\nNaive Bayes Classification Report:")
-    print(classification_report(y_test, y_pred_nb))
-
-    # print validation accuracy
-    if X_val is not None and y_val is not None:
-        nb_val_accuracy = nb.score(X_val, y_val) * 100
-        print(f"Naive Bayes Validation Accuracy: {nb_val_accuracy:.2f}%")
-
+    print(classification_report(y_test, y_pred_nb, digits=4))
     print(f"Naive Bayes Accuracy: {nb_accuracy:.2f}%")
     print(f"Naive Bayes F1-macro: {nb_f1:.4f}")
     
