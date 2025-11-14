@@ -42,13 +42,7 @@ def train_random_forest(X_train, y_train, X_test, y_test, X_val=None, y_val=None
     
     # Print results
     print("\nRandom Forest Classification Report:")
-    print(classification_report(y_test, y_pred_rf))
-    
-    # Print validation accuracy if provided
-    if X_val is not None and y_val is not None:
-        rf_val_accuracy = rf.score(X_val, y_val) * 100
-        print(f"Random Forest Validation Accuracy: {rf_val_accuracy:.2f}%")
-    
+    print(classification_report(y_test, y_pred_rf, digits=4))
     print(f"Random Forest Test Accuracy: {rf_accuracy:.2f}%")
     print(f"Random Forest F1-macro: {rf_f1:.4f}")
     
