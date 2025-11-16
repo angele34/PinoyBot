@@ -18,13 +18,13 @@ def train_random_forest(X_train, y_train, X_test, y_test, X_val=None, y_val=None
     
     # Random Forest with Hyperparameter Grid Search 
     rf_param_grid = {
-        'n_estimators': [100, 200],              
+        'n_estimators': [50],              
         'criterion': ['gini', 'entropy'],         
         'max_depth': [10, 15, None],               
         'min_samples_split': [2, 5, 10],          
-        'min_samples_leaf': [1, 2, 4],             
+        'min_samples_leaf': [1, 2],             
         'max_features': ['sqrt', 'log2'],         
-        'class_weight': ['balanced'],             
+        'class_weight': ['none', 'balanced'],             
     }
     
     # Initialize and perform grid search
