@@ -21,9 +21,9 @@ def train_random_forest(X_train, y_train, X_test, y_test, X_val=None, y_val=None
         'criterion': ['entropy'],                
         'max_depth': [None],                     
         'min_samples_split': [10],               
-        'min_samples_leaf': [1, 2],              
+        'min_samples_leaf': [1],              
         'max_features': ['sqrt'],                
-        'class_weight': [None, 'balanced'],      
+        'class_weight': [None],      
     }
     
     # Initialize and perform grid search
