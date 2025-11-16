@@ -18,12 +18,12 @@ def train_decision_tree(X_train, y_train, X_test, y_test, X_val=None, y_val=None
     
     # Decision Tree with Hyperparameter Grid Search
     param_grid = {
-        'criterion': ['gini', 'entropy'],          
-        'max_depth': [3, 5, 7, 10, None],           
-        'min_samples_split': [2, 5, 10],            
-        'min_samples_leaf': [1, 2, 4],              
-        'class_weight': [None, 'balanced'],         
-        'ccp_alpha': [0.0, 0.001, 0.01],           
+        'criterion': ['entropy'],          
+        'max_depth': [None],           
+        'min_samples_split': [10],            
+        'min_samples_leaf': [1],              
+        'class_weight': [None],         
+        'ccp_alpha': [0.0],           
     }
     
     # Initialize and perform grid search
