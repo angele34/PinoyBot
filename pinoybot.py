@@ -39,9 +39,24 @@ def tag_language(tokens: List[str]) -> List[str]:
 
     return tags
 
+from pinoybot import tag_language
+
+def label_file(input_file):
+    with open(input_file, "r", encoding="utf-8") as f:
+        lines = f.read().strip().split("\n")
+
+    for i, line in enumerate(lines):
+        print(f"\n=== Sentence {i+1} ===")
+
+        # Each sentence is tokenized using "|"
+        tokens = line.split("|")
+
+        # Tag each token
+        tags = tag_language(tokens)
+
+        # Display result
+        for token, tag in zip(tokens, tags):
+            print(f"{token}: {tag}")
+
 if __name__ == "__main__":
-    # Example usage
-    example_tokens = ["Love", "kita", "."]
-    print("Tokens:", example_tokens)
-    tags = tag_language(example_tokens)
-    print("Tags:", tags)
+    label_file("test_data.txt")
